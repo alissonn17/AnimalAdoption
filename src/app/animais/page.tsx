@@ -101,161 +101,224 @@ export default function AnimaisPage() {
     <>
       <Header />
       <Main>
-        <div className="min-h-screen bg-gray-50">
-          {/* Hero Section */}
-          <section className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-16">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center">
-                <h1 className="text-4xl font-bold mb-4">Animais para Adoção</h1>
-                <p className="text-xl opacity-90 mb-8">
-                  Encontre seu novo melhor amigo entre nossos {animais.length}{" "}
-                  pets disponíveis
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-indigo-50">
+          {/* Enhanced Hero Section */}
+          <section className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-600 text-white py-20">
+            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center animate-fade-in">
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+                  Animais para Adoção
+                </h1>
+                <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-3xl mx-auto">
+                  🐾 Encontre seu novo melhor amigo entre nossos{" "}
+                  <span className="font-bold text-yellow-300">{animais.length}</span>{" "}
+                  pets disponíveis para um lar cheio de amor
                 </p>
+                <div className="flex justify-center space-x-4 text-lg">
+                  <span className="bg-white/20 px-4 py-2 rounded-full">❤️ Com amor</span>
+                  <span className="bg-white/20 px-4 py-2 rounded-full">🏠 Novo lar</span>
+                  <span className="bg-white/20 px-4 py-2 rounded-full">🎉 Felicidade</span>
+                </div>
               </div>
             </div>
+            {/* Decorative elements */}
+            <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-bounce"></div>
+            <div className="absolute bottom-10 right-10 w-16 h-16 bg-yellow-300/20 rounded-full animate-pulse"></div>
           </section>
 
-          {/* Filters Section */}
-          <section className="py-8 bg-white shadow-sm">
+          {/* Enhanced Filters Section */}
+          <section className="py-12 relative">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div className="relative">
-                  <FiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                  <Input
-                    type="text"
-                    placeholder="Buscar por nome ou raça..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
-                  />
+              <div className="search-container animate-fade-in">
+                <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+                  🔍 Encontre seu pet ideal
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                  {/* Enhanced Search Input */}
+                  <div className="relative col-span-full md:col-span-2">
+                    <FiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-400 text-lg" />
+                    <Input
+                      type="text"
+                      placeholder="Digite o nome ou raça do seu futuro amigo..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="pl-12 h-14 text-lg border-2 border-purple-200 focus:border-purple-500 rounded-xl bg-white/80 backdrop-blur-sm"
+                    />
+                    {searchTerm && (
+                      <button
+                        onClick={() => setSearchTerm("")}
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
+
+                  {/* Enhanced Species Filter */}
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">🐕 Espécie</label>
+                    <select
+                      value={selectedEspecie}
+                      onChange={(e) => setSelectedEspecie(e.target.value)}
+                      className="w-full h-14 px-4 border-2 border-purple-200 rounded-xl focus:border-purple-500 bg-white/80 backdrop-blur-sm transition-all duration-300"
+                    >
+                      <option value="">Todas as espécies</option>
+                      {getUniqueValues("especie").map((especie) => (
+                        <option key={especie} value={especie}>
+                          {especie === 'cachorro' ? '🐕 ' : '🐱 '} {capitalize(String(especie))}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Enhanced Size Filter */}
+                  <div className="relative">
+                    <label className="block text-sm font-medium text-gray-700 mb-2">📏 Porte</label>
+                    <select
+                      value={selectedPorte}
+                      onChange={(e) => setSelectedPorte(e.target.value)}
+                      className="w-full h-14 px-4 border-2 border-purple-200 rounded-xl focus:border-purple-500 bg-white/80 backdrop-blur-sm transition-all duration-300"
+                    >
+                      <option value="">Todos os portes</option>
+                      {getUniqueValues("porte").map((porte) => (
+                        <option key={porte} value={porte}>
+                          {porte === 'pequeno' ? '🐭 ' : porte === 'médio' ? '🐕 ' : '🐺 '} {capitalize(String(porte))}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
-                <select
-                  value={selectedEspecie}
-                  onChange={(e) => setSelectedEspecie(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                >
-                  <option value="">Todas as espécies</option>
-                  {getUniqueValues("especie").map((especie) => (
-                    <option key={especie} value={especie}>
-                      {capitalize(String(especie))}
-                    </option>
-                  ))}
-                </select>
-
-                <select
-                  value={selectedPorte}
-                  onChange={(e) => setSelectedPorte(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                >
-                  <option value="">Todos os portes</option>
-                  {getUniqueValues("porte").map((porte) => (
-                    <option key={porte} value={porte}>
-                      {capitalize(String(porte))}
-                    </option>
-                  ))}
-                </select>
-
-                <Button
-                  variant="outline"
-                  onClick={() => {
-                    setSearchTerm("");
-                    setSelectedEspecie("");
-                    setSelectedPorte("");
-                  }}
-                >
-                  Limpar Filtros
-                </Button>
-              </div>
-            </div>
-          </section>
-
-          {/* Animals Grid */}
-          <section className="py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              {filteredAnimais.length === 0 ? (
-                <div className="text-center py-12">
-                  <p className="text-gray-500 text-lg">
-                    {searchTerm || selectedEspecie || selectedPorte
-                      ? "Nenhum animal encontrado com os filtros aplicados."
-                      : "Nenhum animal disponível no momento."}
+                {/* Filter Stats */}
+                <div className="mt-6 text-center">
+                  <p className="text-gray-600">
+                    Mostrando <span className="font-bold text-purple-600">{filteredAnimais.length}</span> de{" "}
+                    <span className="font-bold">{animais.length}</span> animais
+                    {(searchTerm || selectedEspecie || selectedPorte) && (
+                      <button
+                        onClick={() => {
+                          setSearchTerm("");
+                          setSelectedEspecie("");
+                          setSelectedPorte("");
+                        }}
+                        className="ml-4 text-purple-600 hover:text-purple-800 font-medium underline"
+                      >
+                        Limpar filtros
+                      </button>
+                    )}
                   </p>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Enhanced Animals Grid */}
+          <section className="pb-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {filteredAnimais.length === 0 ? (
+                <div className="text-center py-16 animate-fade-in">
+                  <div className="text-6xl mb-4">😢</div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                    Nenhum animal encontrado
+                  </h3>
+                  <p className="text-gray-600 mb-8">
+                    Tente ajustar os filtros ou buscar por outros termos
+                  </p>
+                  <Button
+                    onClick={() => {
+                      setSearchTerm("");
+                      setSelectedEspecie("");
+                      setSelectedPorte("");
+                    }}
+                    className="btn-primary"
+                  >
+                    Ver todos os animais
+                  </Button>
+                </div>
               ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {filteredAnimais.map((animal) => (
-                    <Card
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                  {filteredAnimais.map((animal, index) => (
+                    <Link
                       key={animal.id}
-                      className="overflow-hidden hover:shadow-lg transition-shadow"
+                      href={`/animais/${animal.id}`}
+                      className="group block animate-fade-in"
+                      style={{
+                        animationDelay: `${index * 0.1}s`
+                      }}
                     >
-                      <div className="aspect-square bg-gray-100 relative">
-                        {animal.imagemUrl ? (
-                          <Image
-                            src={animal.imagemUrl}
-                            alt={animal.nome}
-                            fill
-                            className="object-cover"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center">
-                            <FiHeart className="text-4xl text-gray-400" />
+                      <Card className="animal-card h-full">
+                        <div className="relative overflow-hidden">
+                          <div className="animal-image aspect-square">
+                            <Image
+                              src={animal.foto || "/api/placeholder/300/300"}
+                              alt={`Foto de ${animal.nome}`}
+                              width={300}
+                              height={300}
+                              className="w-full h-full object-cover"
+                              priority={index < 8}
+                            />
                           </div>
-                        )}
-                        <div className="absolute top-2 right-2">
-                          <span
-                            className={`px-2 py-1 rounded-full text-xs font-medium ${
-                              animal.status === "disponivel"
-                                ? "bg-green-100 text-green-800"
-                                : "bg-yellow-100 text-yellow-800"
-                            }`}
-                          >
-                            {capitalize(animal.status)}
-                          </span>
-                        </div>
-                      </div>
-
-                      <CardHeader>
-                        <CardTitle className="text-lg">{animal.nome}</CardTitle>
-                        <CardDescription>
-                          {capitalize(animal.especie)} •{" "}
-                          {capitalize(animal.raca)}
-                        </CardDescription>
-                      </CardHeader>
-
-                      <CardContent>
-                        <div className="space-y-2 text-sm text-gray-600">
-                          <div className="flex items-center space-x-2">
-                            <FiCalendar className="w-4 h-4" />
-                            <span>{animal.idade} anos</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <span className="w-4 h-4 flex items-center justify-center">
-                              📏
+                          
+                          {/* Status Badge */}
+                          <div className="absolute top-4 right-4">
+                            <span
+                              className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${
+                                animal.status === "disponivel"
+                                  ? "bg-green-500 text-white animate-pulse"
+                                  : animal.status === "adotado"
+                                  ? "bg-gray-500 text-white"
+                                  : "bg-yellow-500 text-white"
+                              }`}
+                            >
+                              {animal.status === "disponivel" ? "✨ Disponível" : 
+                               animal.status === "adotado" ? "🏠 Adotado" : "⏳ Reservado"}
                             </span>
-                            <span>Porte {animal.porte}</span>
                           </div>
-                          <div className="flex items-center space-x-2">
-                            <span className="w-4 h-4 flex items-center justify-center">
-                              {animal.sexo === "macho" ? "♂️" : "♀️"}
+                        </div>
+
+                        <CardHeader className="pb-2">
+                          <div className="flex items-center justify-between">
+                            <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors">
+                              {animal.especie === 'cachorro' ? '🐕' : '🐱'} {animal.nome}
+                            </CardTitle>
+                            <span className="text-2xl">
+                              {animal.sexo === 'macho' ? '♂️' : '♀️'}
                             </span>
-                            <span>{capitalize(animal.sexo)}</span>
                           </div>
-                        </div>
+                          <CardDescription className="text-gray-600">
+                            {capitalize(animal.raca)} • {capitalize(animal.porte)}
+                          </CardDescription>
+                        </CardHeader>
 
-                        <p className="text-sm text-gray-700 mt-3 line-clamp-2">
-                          {animal.descricao}
-                        </p>
+                        <CardContent className="pt-0">
+                          <div className="space-y-3">
+                            <div className="flex items-center text-sm text-gray-600">
+                              <FiCalendar className="mr-2 text-purple-500" />
+                              <span>{animal.idade}</span>
+                            </div>
+                            
+                            <p className="text-gray-700 text-sm leading-relaxed line-clamp-3">
+                              {animal.descricao}
+                            </p>
 
-                        <div className="mt-4">
-                          <Link href={`/animais/${animal.id}`}>
-                            <Button className="w-full">
-                              <FiHeart className="mr-2 h-4 w-4" />
-                              Ver Detalhes
-                            </Button>
-                          </Link>
-                        </div>
-                      </CardContent>
-                    </Card>
+                            {animal.status === "disponivel" && (
+                              <Button
+                                className="adoption-btn w-full mt-4 group"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  // Aqui você pode adicionar a lógica de adoção
+                                }}
+                              >
+                                <FiHeart className="heart-icon mr-2 group-hover:animate-heartbeat" />
+                                Quero Adotar
+                              </Button>
+                            )}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
                   ))}
                 </div>
               )}
