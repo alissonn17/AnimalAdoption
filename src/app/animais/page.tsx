@@ -104,21 +104,29 @@ export default function AnimaisPage() {
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-indigo-50">
           {/* Enhanced Hero Section */}
           <section className="relative overflow-hidden bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-600 text-white py-20">
-            <div className="absolute inset-0 bg-black/10"></div>
+            <div className="absolute inset-0 bg-black/20"></div>
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center animate-fade-in">
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
                   Animais para Adoção
                 </h1>
-                <p className="text-xl md:text-2xl opacity-90 mb-8 max-w-3xl mx-auto">
+                <p className="text-lg md:text-xl text-purple-100 mb-8 max-w-3xl mx-auto leading-relaxed">
                   🐾 Encontre seu novo melhor amigo entre nossos{" "}
-                  <span className="font-bold text-yellow-300">{animais.length}</span>{" "}
+                  <span className="font-bold text-yellow-300 bg-yellow-900/30 px-2 py-1 rounded">
+                    {animais.length}
+                  </span>{" "}
                   pets disponíveis para um lar cheio de amor
                 </p>
-                <div className="flex justify-center space-x-4 text-lg">
-                  <span className="bg-white/20 px-4 py-2 rounded-full">❤️ Com amor</span>
-                  <span className="bg-white/20 px-4 py-2 rounded-full">🏠 Novo lar</span>
-                  <span className="bg-white/20 px-4 py-2 rounded-full">🎉 Felicidade</span>
+                <div className="flex flex-wrap justify-center gap-4 text-sm md:text-base">
+                  <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30">
+                    ❤️ Com amor
+                  </span>
+                  <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30">
+                    🏠 Novo lar
+                  </span>
+                  <span className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30">
+                    🎉 Felicidade
+                  </span>
                 </div>
               </div>
             </div>
@@ -134,40 +142,54 @@ export default function AnimaisPage() {
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                   🔍 Encontre seu pet ideal
                 </h2>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                   {/* Enhanced Search Input */}
                   <div className="relative col-span-full md:col-span-2">
-                    <FiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-400 text-lg" />
+                    <FiSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-purple-500 text-lg" />
                     <Input
                       type="text"
                       placeholder="Digite o nome ou raça do seu futuro amigo..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="pl-12 h-14 text-lg border-2 border-purple-200 focus:border-purple-500 rounded-xl bg-white/80 backdrop-blur-sm"
+                      className="pl-12 h-14 text-lg border-2 border-purple-200 focus:border-purple-500 rounded-xl bg-white/90 backdrop-blur-sm text-gray-800 placeholder:text-gray-500"
+                      aria-label="Buscar animais por nome ou raça"
                     />
                     {searchTerm && (
                       <button
                         onClick={() => setSearchTerm("")}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 p-1 rounded transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        aria-label="Limpar busca"
                       >
-                        ✕
+                        <span className="text-lg">✕</span>
                       </button>
                     )}
                   </div>
 
                   {/* Enhanced Species Filter */}
                   <div className="relative">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">🐕 Espécie</label>
+                    <label
+                      htmlFor="especie-filter"
+                      className="block text-sm font-medium text-gray-800 mb-2"
+                    >
+                      🐕 Espécie
+                    </label>
                     <select
+                      id="especie-filter"
                       value={selectedEspecie}
                       onChange={(e) => setSelectedEspecie(e.target.value)}
-                      className="w-full h-14 px-4 border-2 border-purple-200 rounded-xl focus:border-purple-500 bg-white/80 backdrop-blur-sm transition-all duration-300"
+                      className="w-full h-14 px-4 border-2 border-purple-200 rounded-xl focus:border-purple-500 bg-white/90 backdrop-blur-sm transition-all duration-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      aria-label="Filtrar por espécie"
                     >
                       <option value="">Todas as espécies</option>
                       {getUniqueValues("especie").map((especie) => (
-                        <option key={especie} value={especie}>
-                          {especie === 'cachorro' ? '🐕 ' : '🐱 '} {capitalize(String(especie))}
+                        <option
+                          key={especie}
+                          value={especie}
+                          className="text-gray-800"
+                        >
+                          {especie === "cachorro" ? "🐕 " : "🐱 "}{" "}
+                          {capitalize(String(especie))}
                         </option>
                       ))}
                     </select>
@@ -175,16 +197,32 @@ export default function AnimaisPage() {
 
                   {/* Enhanced Size Filter */}
                   <div className="relative">
-                    <label className="block text-sm font-medium text-gray-700 mb-2">📏 Porte</label>
+                    <label
+                      htmlFor="porte-filter"
+                      className="block text-sm font-medium text-gray-800 mb-2"
+                    >
+                      📏 Porte
+                    </label>
                     <select
+                      id="porte-filter"
                       value={selectedPorte}
                       onChange={(e) => setSelectedPorte(e.target.value)}
-                      className="w-full h-14 px-4 border-2 border-purple-200 rounded-xl focus:border-purple-500 bg-white/80 backdrop-blur-sm transition-all duration-300"
+                      className="w-full h-14 px-4 border-2 border-purple-200 rounded-xl focus:border-purple-500 bg-white/90 backdrop-blur-sm transition-all duration-300 text-gray-800 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                      aria-label="Filtrar por porte"
                     >
                       <option value="">Todos os portes</option>
                       {getUniqueValues("porte").map((porte) => (
-                        <option key={porte} value={porte}>
-                          {porte === 'pequeno' ? '🐭 ' : porte === 'médio' ? '🐕 ' : '🐺 '} {capitalize(String(porte))}
+                        <option
+                          key={porte}
+                          value={porte}
+                          className="text-gray-800"
+                        >
+                          {porte === "pequeno"
+                            ? "🐭 "
+                            : porte === "médio"
+                            ? "🐕 "
+                            : "🐺 "}{" "}
+                          {capitalize(String(porte))}
                         </option>
                       ))}
                     </select>
@@ -193,9 +231,16 @@ export default function AnimaisPage() {
 
                 {/* Filter Stats */}
                 <div className="mt-6 text-center">
-                  <p className="text-gray-600">
-                    Mostrando <span className="font-bold text-purple-600">{filteredAnimais.length}</span> de{" "}
-                    <span className="font-bold">{animais.length}</span> animais
+                  <p className="text-gray-700 text-base">
+                    Mostrando{" "}
+                    <span className="font-bold text-purple-700 text-lg">
+                      {filteredAnimais.length}
+                    </span>{" "}
+                    de{" "}
+                    <span className="font-bold text-gray-800">
+                      {animais.length}
+                    </span>{" "}
+                    animais
                     {(searchTerm || selectedEspecie || selectedPorte) && (
                       <button
                         onClick={() => {
@@ -203,7 +248,8 @@ export default function AnimaisPage() {
                           setSelectedEspecie("");
                           setSelectedPorte("");
                         }}
-                        className="ml-4 text-purple-600 hover:text-purple-800 font-medium underline"
+                        className="ml-4 text-purple-700 hover:text-purple-900 font-medium underline underline-offset-2 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded px-1"
+                        aria-label="Limpar todos os filtros"
                       >
                         Limpar filtros
                       </button>
@@ -243,62 +289,78 @@ export default function AnimaisPage() {
                     <Link
                       key={animal.id}
                       href={`/animais/${animal.id}`}
-                      className="group block animate-fade-in"
+                      className="group block animate-fade-in focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-offset-2 rounded-2xl"
                       style={{
-                        animationDelay: `${index * 0.1}s`
+                        animationDelay: `${index * 0.1}s`,
                       }}
+                      aria-label={`Ver detalhes de ${animal.nome}`}
                     >
-                      <Card className="animal-card h-full">
+                      <Card className="animal-card h-full bg-white border-2 border-gray-200 hover:border-purple-300 shadow-lg hover:shadow-2xl transition-all duration-300">
                         <div className="relative overflow-hidden">
                           <div className="animal-image aspect-square">
                             <Image
-                              src={animal.foto || "/api/placeholder/300/300"}
-                              alt={`Foto de ${animal.nome}`}
+                              src={
+                                animal.imagemUrl ||
+                                `https://picsum.photos/400/300?random=${animal.id}`
+                              }
+                              alt={`Foto de ${animal.nome}, ${animal.raca}`}
                               width={300}
                               height={300}
                               className="w-full h-full object-cover"
                               priority={index < 8}
                             />
                           </div>
-                          
+
                           {/* Status Badge */}
                           <div className="absolute top-4 right-4">
                             <span
-                              className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide ${
+                              className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg ${
                                 animal.status === "disponivel"
-                                  ? "bg-green-500 text-white animate-pulse"
+                                  ? "bg-green-600 text-white animate-pulse"
                                   : animal.status === "adotado"
-                                  ? "bg-gray-500 text-white"
-                                  : "bg-yellow-500 text-white"
+                                  ? "bg-gray-600 text-white"
+                                  : "bg-yellow-600 text-white"
                               }`}
                             >
-                              {animal.status === "disponivel" ? "✨ Disponível" : 
-                               animal.status === "adotado" ? "🏠 Adotado" : "⏳ Reservado"}
+                              {animal.status === "disponivel"
+                                ? "✨ Disponível"
+                                : animal.status === "adotado"
+                                ? "🏠 Adotado"
+                                : "⏳ Reservado"}
                             </span>
                           </div>
                         </div>
 
                         <CardHeader className="pb-2">
                           <div className="flex items-center justify-between">
-                            <CardTitle className="text-xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors">
-                              {animal.especie === 'cachorro' ? '🐕' : '🐱'} {animal.nome}
+                            <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
+                              {animal.especie === "cachorro" ? "🐕" : "🐱"}{" "}
+                              {animal.nome}
                             </CardTitle>
-                            <span className="text-2xl">
-                              {animal.sexo === 'macho' ? '♂️' : '♀️'}
+                            <span
+                              className="text-2xl"
+                              aria-label={
+                                animal.sexo === "macho" ? "Macho" : "Fêmea"
+                              }
+                            >
+                              {animal.sexo === "macho" ? "♂️" : "♀️"}
                             </span>
                           </div>
-                          <CardDescription className="text-gray-600">
-                            {capitalize(animal.raca)} • {capitalize(animal.porte)}
+                          <CardDescription className="text-gray-700 font-medium">
+                            {capitalize(animal.raca)} •{" "}
+                            {capitalize(animal.porte)}
                           </CardDescription>
                         </CardHeader>
 
                         <CardContent className="pt-0">
                           <div className="space-y-3">
-                            <div className="flex items-center text-sm text-gray-600">
-                              <FiCalendar className="mr-2 text-purple-500" />
-                              <span>{animal.idade}</span>
+                            <div className="flex items-center text-sm text-gray-700">
+                              <FiCalendar className="mr-2 text-purple-600" />
+                              <span className="font-medium">
+                                {animal.idade}
+                              </span>
                             </div>
-                            
+
                             <p className="text-gray-700 text-sm leading-relaxed line-clamp-3">
                               {animal.descricao}
                             </p>
@@ -310,6 +372,7 @@ export default function AnimaisPage() {
                                   e.preventDefault();
                                   // Aqui você pode adicionar a lógica de adoção
                                 }}
+                                aria-label={`Iniciar processo de adoção de ${animal.nome}`}
                               >
                                 <FiHeart className="heart-icon mr-2 group-hover:animate-heartbeat" />
                                 Quero Adotar

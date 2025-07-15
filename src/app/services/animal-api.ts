@@ -73,20 +73,20 @@ export const animaisService = {
       const response = await api.get(`/animais/${id}`);
       return response.data;
     } catch (error: unknown) {
-      const axiosError = error as any; // Type assertion for axios error
+      const axiosError = error as { response?: { status?: number }; code?: string; message?: string };
       console.error(`Error fetching animal ${id}:`, axiosError?.response?.status, axiosError?.message);
       
       // Re-throw with more specific error information
-      if (error?.response?.status === 404) {
+      if (axiosError?.response?.status === 404) {
         throw new Error(`Animal with ID ${id} not found`);
-      } else if (error?.response?.status >= 500) {
-        throw new Error(`Server error: ${error?.response?.status}`);
-      } else if (error?.code === 'ECONNABORTED' || error?.message?.includes('timeout')) {
+      } else if (axiosError?.response?.status && axiosError.response.status >= 500) {
+        throw new Error(`Server error: ${axiosError.response.status}`);
+      } else if (axiosError?.code === 'ECONNABORTED' || axiosError?.message?.includes('timeout')) {
         throw new Error('Request timeout - API is taking too long to respond');
-      } else if (error?.code === 'NETWORK_ERROR' || !error?.response) {
+      } else if (axiosError?.code === 'NETWORK_ERROR' || !axiosError?.response) {
         throw new Error('Network error - Unable to connect to API');
       } else {
-        throw new Error(`Failed to fetch animal with ID ${id}: ${error?.message}`);
+        throw new Error(`Failed to fetch animal with ID ${id}: ${axiosError?.message}`);
       }
     }
   },

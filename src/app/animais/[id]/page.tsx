@@ -38,8 +38,9 @@ export default function AnimalDetailPage() {
       setError(""); // Clear previous errors
       const data = await animaisService.getById(Number(animalId));
       setAnimal(data);
-    } catch (err: any) {
-      console.error("Error loading animal:", err);
+    } catch (err: unknown) {
+      const error = err as { message?: string };
+      console.error("Error loading animal:", error);
 
       // Try to find in mock data first
       const mockAnimal = mockAnimals.find(
@@ -51,15 +52,23 @@ export default function AnimalDetailPage() {
         console.log("Using mock data for animal:", animalId);
       } else {
         // Set specific error messages based on error type
-        if (err?.response?.status === 404) {
+        const axiosError = error as {
+          response?: { status?: number };
+          code?: string;
+          message?: string;
+        };
+        if (axiosError?.response?.status === 404) {
           setError("Animal não encontrado. Verifique se o ID está correto.");
-        } else if (err?.response?.status >= 500) {
+        } else if (
+          axiosError?.response?.status &&
+          axiosError.response.status >= 500
+        ) {
           setError(
             "Servidor temporariamente indisponível. Tente novamente em alguns minutos."
           );
         } else if (
-          err?.code === "NETWORK_ERROR" ||
-          err?.message?.includes("Network Error")
+          axiosError?.code === "NETWORK_ERROR" ||
+          axiosError?.message?.includes("Network Error")
         ) {
           setError(
             "Problema de conexão. Verifique sua internet e tente novamente."
