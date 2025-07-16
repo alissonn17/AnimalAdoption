@@ -32,3 +32,10 @@ body {
 html, #root {
   height: 100%;
 }
+
+main{
+  flex-grow: 1 1 0;
+  background-color: #eff6ff;
+  color: #000;
+  padding: 5px;
+}
