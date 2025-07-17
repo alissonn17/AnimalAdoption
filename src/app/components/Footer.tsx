@@ -149,8 +149,7 @@ export default function Footer(): JSX.Element {
                   Módulo M5-PDA
                 </h4>
                 <p className="text-sm text-gray-300 leading-relaxed">
-                  Projeto desenvolvido no curso de Análise e Desenvolvimento de
-                  Sistemas
+                  Projeto desenvolvido no Programadores do Amanhã
                 </p>
               </div>
               <div className="text-sm text-gray-400">
