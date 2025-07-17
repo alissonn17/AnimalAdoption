@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Animal Adoption Logo](./public/ico.png)
+<img src="./public/ico.png" alt="Animal Adoption Logo" width="120">
 
 **A modern and comprehensive platform for animal adoption, connecting pets with loving families**
 
@@ -11,7 +11,7 @@
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 [![React](https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 
-[🚀 Live Demo](https://animal-adoption-alissonn17s-projects.vercel.app/) • [📋 API Documentation](https://github.com/your-squad/animal-adoption-api) • [📱 Screenshots](#-screenshots)
+[🚀 Live Demo](https://animal-adoption-alissonn17s-projects.vercel.app/) • [📋 API Documentation](https://animaladoption-api-fdi1.onrender.com/api-docs/) • [📱 Screenshots](#-screenshots)
 
 </div>
 
@@ -39,25 +39,25 @@ Our mission is to **transform lives through responsible adoption**, connecting a
 
 ### Frontend Stack
 
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| **Next.js** | `15.3.5` | React framework with App Router |
-| **React** | `^19.0.0` | UI library for component-based architecture |
-| **TypeScript** | `^5.0.0` | Type-safe JavaScript development |
-| **TailwindCSS** | `^4.0.0` | Utility-first CSS framework |
-| **React Hook Form** | `^7.60.0` | Performant forms with easy validation |
-| **Zod** | `^4.0.5` | TypeScript-first schema validation |
-| **Axios** | `^1.10.0` | Promise-based HTTP client |
-| **React Icons** | `^5.5.0` | Popular icon library for React |
+| Technology          | Version   | Purpose                                     |
+| ------------------- | --------- | ------------------------------------------- |
+| **Next.js**         | `15.3.5`  | React framework with App Router             |
+| **React**           | `^19.0.0` | UI library for component-based architecture |
+| **TypeScript**      | `^5.0.0`  | Type-safe JavaScript development            |
+| **TailwindCSS**     | `^4.0.0`  | Utility-first CSS framework                 |
+| **React Hook Form** | `^7.60.0` | Performant forms with easy validation       |
+| **Zod**             | `^4.0.5`  | TypeScript-first schema validation          |
+| **Axios**           | `^1.10.0` | Promise-based HTTP client                   |
+| **React Icons**     | `^5.5.0`  | Popular icon library for React              |
 
 ### Development Tools
 
-| Tool | Version | Purpose |
-|------|---------|---------|
-| **ESLint** | `^9.0.0` | Code linting and quality assurance |
-| **Tailwind Merge** | `^3.3.1` | Utility for merging Tailwind classes |
-| **@hookform/resolvers** | `^5.1.1` | Validation resolvers for React Hook Form |
-| **clsx** | `^2.1.1` | Utility for constructing className strings |
+| Tool                    | Version  | Purpose                                    |
+| ----------------------- | -------- | ------------------------------------------ |
+| **ESLint**              | `^9.0.0` | Code linting and quality assurance         |
+| **Tailwind Merge**      | `^3.3.1` | Utility for merging Tailwind classes       |
+| **@hookform/resolvers** | `^5.1.1` | Validation resolvers for React Hook Form   |
+| **clsx**                | `^2.1.1` | Utility for constructing className strings |
 
 ---
 
@@ -74,12 +74,14 @@ Before running this project, make sure you have:
 ### Installation & Setup
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/alissonn17/AnimalAdoption.git
    cd AnimalAdoption
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -87,15 +89,17 @@ Before running this project, make sure you have:
    ```
 
 3. **Environment Configuration**
+
    ```bash
    # Copy environment template
    cp .env.example .env.local
-   
+
    # Edit .env.local with your API configurations
-   NEXT_PUBLIC_API_URL=https://your-api-url.com
+   NEXT_PUBLIC_API_URL=https://animaladoption-api-fdi1.onrender.com/api
    ```
 
 4. **Run Development Server**
+
    ```bash
    npm run dev
    # or
@@ -145,7 +149,7 @@ src/
 
 This frontend application consumes the **Animal Adoption API** developed by our partner squad in Module 4.
 
-**API Repository:** [Animal Adoption API](https://github.com/your-squad/animal-adoption-api)
+**API Repository:** [Animal Adoption API](https://github.com/alissonn17/AnimalAdoption-Api)
 
 ### API Endpoints Used
 
@@ -160,24 +164,29 @@ This frontend application consumes the **Animal Adoption API** developed by our 
 ## 📸 Screenshots
 
 ### 🏠 Homepage
+
 ![Homepage](./docs/screenshots/homepage.png)
-*Modern landing page with hero section and featured animals*
+_Modern landing page with hero section and featured animals_
 
 ### 🐕 Animals Page
+
 ![Animals Page](./docs/screenshots/animals.png)
-*Advanced search and filtering for available pets*
+_Advanced search and filtering for available pets_
 
 ### 🏢 Shelters Management
+
 ![Shelters Page](./docs/screenshots/shelters.png)
-*Comprehensive shelter partner management system*
+_Comprehensive shelter partner management system_
 
 ### 📅 Events Platform
+
 ![Events Page](./docs/screenshots/events.png)
-*Interactive events calendar with filtering capabilities*
+_Interactive events calendar with filtering capabilities_
 
 ### 📱 Mobile Responsive
+
 ![Mobile View](./docs/screenshots/mobile.png)
-*Fully responsive design for all devices*
+_Fully responsive design for all devices_
 
 ---
 
@@ -185,14 +194,14 @@ This frontend application consumes the **Animal Adoption API** developed by our 
 
 **Squad 1 - Module 5 PDA**
 
-| Avatar | Name | Role | GitHub |
-|--------|------|------|--------|
-| <img src="https://github.com/alissonn17.png" width="50"> | **Alisson** | Team Lead & Frontend Developer | [@alissonn17](https://github.com/alissonn17) |
-| <img src="https://github.com/DeividLeal.png" width="50"> | **Deivid Leal** | Frontend Developer & UI/UX | [@DeividLeal](https://github.com/DeividLeal) |
-| <img src="https://github.com/hjoao12.png" width="50"> | **João** | Frontend Developer | [@hjoao12](https://github.com/hjoao12) |
-| <img src="https://github.com/joao17-bel.png" width="50"> | **João Bel** | Frontend Developer | [@joao17-bel](https://github.com/joao17-bel) |
-| <img src="https://github.com/Davinunesaz.png" width="50"> | **Davi Nunes** | Frontend Developer | [@Davinunesaz](https://github.com/Davinunesaz) |
-| <img src="https://github.com/caiousousa.png" width="50"> | **Caio Sousa** | Frontend Developer | [@caiousousa](https://github.com/caiousousa) |
+| Avatar                                                    | Name            | Role                           | GitHub                                         |
+| --------------------------------------------------------- | --------------- | ------------------------------ | ---------------------------------------------- |
+| <img src="https://github.com/alissonn17.png" width="50">  | **Alisson**     | Team Lead & Frontend Developer | [@alissonn17](https://github.com/alissonn17)   |
+| <img src="https://github.com/DeividLeal.png" width="50">  | **Deivid Leal** | Frontend Developer & UI/UX     | [@DeividLeal](https://github.com/DeividLeal)   |
+| <img src="https://github.com/hjoao12.png" width="50">     | **João**        | Frontend Developer             | [@hjoao12](https://github.com/hjoao12)         |
+| <img src="https://github.com/joao17-bel.png" width="50">  | **João Bel**    | Frontend Developer             | [@joao17-bel](https://github.com/joao17-bel)   |
+| <img src="https://github.com/Davinunesaz.png" width="50"> | **Davi Nunes**  | Frontend Developer             | [@Davinunesaz](https://github.com/Davinunesaz) |
+| <img src="https://github.com/caiousousa.png" width="50">  | **Caio Sousa**  | Frontend Developer             | [@caiousousa](https://github.com/caiousousa)   |
 
 ---
 
@@ -224,11 +233,13 @@ refactor: ♻️ optimize API service architecture
 ## 🚀 Deployment & Links
 
 ### Live Application
+
 - **🌐 Production Site:** [Animal Adoption Platform](https://animal-adoption-alissonn17s-projects.vercel.app/)
 - **📱 Mobile Optimized:** Fully responsive across all devices
 - **⚡ Performance:** Optimized with Next.js and Vercel Edge Network
 
 ### Social Media & Presentation
+
 - **📺 LinkedIn Presentation:** [Project Showcase](https://linkedin.com/posts/your-presentation)
 - **📋 Project Documentation:** [GitHub Wiki](https://github.com/alissonn17/AnimalAdoption/wiki)
 
@@ -287,6 +298,6 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ![Footer](./docs/footer-banner.png)
 
-*Transforming lives through responsible animal adoption* 🐾
+_Transforming lives through responsible animal adoption_ 🐾
 
 </div>
