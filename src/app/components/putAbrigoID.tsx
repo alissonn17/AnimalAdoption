@@ -30,10 +30,10 @@ export default function Putabrigo(): JSX.Element{
             if (!id || id.trim().length === 0) return;
 
             try{
-                await axios.put(`${process.env.NEXT_PUBLIC_URL}/Abrigos/${id}`, data);
-            //     const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/Abrigos`);
+                await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos/${id}`, data);
+            //     const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos`);
             // setRes(response.data);
-                console.log(`${process.env.NEXT_PUBLIC_URL}/Abrigos/`)
+                console.log(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos/`)
             } catch (error) {
                 console.log("Erro durante a requisição!", error);
             }

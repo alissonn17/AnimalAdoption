@@ -31,9 +31,9 @@ export default function Getabrigoid(): JSX.Element{
             if (!id || id.trim().length === 0) return;
 
             try{
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/Abrigos/${id}`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos/${id}`);
                 setRes(response.data);
-                console.log(`${process.env.NEXT_PUBLIC_URL}/Abrigos/${id}`)
+                console.log(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos/${id}`)
 
             } catch (error) {
                 

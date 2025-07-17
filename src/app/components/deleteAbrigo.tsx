@@ -30,9 +30,9 @@ export default function Deleteabrigo(): JSX.Element{
             if (!id || id.trim().length === 0) return;
 
             try{
-                await axios.delete(`${process.env.NEXT_PUBLIC_URL}/Abrigos/${id}`);
+                await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos/${id}`);
                 setRes("Abrigo deletado com sucesso!");
-                console.log(`${process.env.NEXT_PUBLIC_URL}/Abrigos/${id}`)
+                console.log(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos/${id}`)
             } catch (error) {
                 console.log("Erro durante a requisição!", error);
             }

@@ -34,7 +34,7 @@ export default function Abrigo(): JSX.Element {
       try {
         setLoading(true);
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_URL}/Abrigos`
+          `${process.env.NEXT_PUBLIC_API_URL}/Abrigos`
         );
         setRes(response.data);
         setError(null);

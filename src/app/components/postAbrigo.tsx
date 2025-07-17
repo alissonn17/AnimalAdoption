@@ -30,10 +30,10 @@ export default function Postabrigo(): JSX.Element{
             if (!data || data === null) return;
 
             try{
-                await axios.post(`${process.env.NEXT_PUBLIC_URL}/Abrigos`, data);
-                const response = await axios.get(`${process.env.NEXT_PUBLIC_URL}/Abrigos`);
+                await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos`, data);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos`);
                 setRes(response.data);
-                console.log(`${process.env.NEXT_PUBLIC_URL}/Abrigos/`);
+                console.log(`${process.env.NEXT_PUBLIC_API_URL}/Abrigos/`);
 
             } catch (error) {
                 console.log("Erro durante a requisição!", error);
