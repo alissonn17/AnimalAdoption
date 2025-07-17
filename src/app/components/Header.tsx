@@ -12,6 +12,7 @@ import {
   FiUsers,
   FiShield,
   FiMessageSquare,
+  FiCalendar,
 } from "react-icons/fi";
 
 /**
@@ -82,6 +83,10 @@ export default function Header(): JSX.Element {
             <Link href="/abrigo" className={getLinkClassName("/abrigo")}>
               <FiShield className="h-4 w-4 group-hover:scale-110 transition-transform" />
               <span>Abrigos</span>
+            </Link>
+            <Link href="/eventos" className={getLinkClassName("/eventos")}>
+              <FiCalendar className="h-4 w-4 group-hover:scale-110 transition-transform" />
+              <span>Eventos</span>
             </Link>
             <Link href="/sobre" className={getLinkClassName("/sobre")}>
               <FiUsers className="h-4 w-4 group-hover:scale-110 transition-transform" />
@@ -158,6 +163,18 @@ export default function Header(): JSX.Element {
               >
                 <FiShield className="h-6 w-6 group-hover:scale-110 transition-transform" />
                 <span>Abrigos</span>
+              </Link>
+              <Link
+                href="/eventos"
+                className={`flex items-center space-x-4 px-6 py-4 rounded-xl mx-2 font-semibold transition-all duration-300 ${
+                  isActivePage("/eventos")
+                    ? "nav-link-active text-white shadow-lg"
+                    : "nav-link-default hover:nav-link-active hover:shadow-md"
+                }`}
+                onClick={closeMobileMenu}
+              >
+                <FiCalendar className="h-6 w-6 group-hover:scale-110 transition-transform" />
+                <span>Eventos</span>
               </Link>
               <Link
                 href="/sobre"

@@ -102,6 +102,14 @@ export default function Footer(): JSX.Element {
               </li>
               <li>
                 <Link
+                  href="/eventos"
+                  className="text-gray-300 hover:text-purple-300 transition-colors duration-300 hover:translate-x-1 transform inline-block"
+                >
+                  Eventos de Adoção
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/sobre"
                   className="text-gray-300 hover:text-purple-300 transition-colors duration-300 hover:translate-x-1 transform inline-block"
                 >
