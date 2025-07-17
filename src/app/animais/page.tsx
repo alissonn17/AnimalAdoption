@@ -126,14 +126,14 @@ export default function AnimaisPage() {
                     placeholder="Buscar por nome ou raça..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
+                    className="pl-10 rounded-lg border-gray-200 focus-visible:ring-primary/30 transition-all duration-200"
                   />
                 </div>
 
                 <select
                   value={selectedEspecie}
                   onChange={(e) => setSelectedEspecie(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="flex h-10 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200"
                 >
                   <option value="">Todas as espécies</option>
                   {getUniqueValues("especie").map((especie) => (
@@ -146,7 +146,7 @@ export default function AnimaisPage() {
                 <select
                   value={selectedPorte}
                   onChange={(e) => setSelectedPorte(e.target.value)}
-                  className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="flex h-10 w-full rounded-lg border border-gray-200 px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200"
                 >
                   <option value="">Todos os portes</option>
                   {getUniqueValues("porte").map((porte) => (
@@ -163,8 +163,14 @@ export default function AnimaisPage() {
                     setSelectedEspecie("");
                     setSelectedPorte("");
                   }}
+                  className="group relative overflow-hidden hover:border-primary/50 transition-all duration-200 btn-dog-walking"
                 >
-                  Limpar Filtros
+                  <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span className="dog-emoji animate-tail-wag text-lg">🦴</span>
+                  </span>
+                  <span className="group-hover:opacity-0 transition-opacity duration-300">
+                    Limpar Filtros
+                  </span>
                 </Button>
               </div>
             </div>
@@ -189,7 +195,7 @@ export default function AnimaisPage() {
                       href={`/animais/${animal.id}`}
                       className="group block"
                     >
-                      <Card className="overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group-hover:border-primary/50">
+                      <Card className="overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group-hover:border-primary/50 rounded-xl border-gray-200">
                         <div className="aspect-square bg-gray-100 relative">
                           {animal.imagemUrl ? (
                             <Image
@@ -207,8 +213,8 @@ export default function AnimaisPage() {
                             <span
                               className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
                                 animal.status === "disponivel"
-                                  ? "bg-green-100 text-green-800 border border-green-200"
-                                  : "bg-yellow-100 text-yellow-800 border border-yellow-200"
+                                  ? "bg-green-50 text-green-700 border border-green-200"
+                                  : "bg-yellow-50 text-yellow-700 border border-yellow-200"
                               }`}
                             >
                               {capitalize(animal.status)}
@@ -250,9 +256,14 @@ export default function AnimaisPage() {
                             {animal.descricao}
                           </p>
 
-                          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold py-2.5 shadow-md hover:shadow-lg transition-all duration-200">
-                            <FiHeart className="mr-2 h-4 w-4" />
-                            Ver Detalhes
+                          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold py-2.5 shadow-md hover:shadow-lg transition-all duration-200 group relative overflow-hidden btn-dog-hover">
+                            <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                              <span className="dog-emoji text-lg">🐕</span>
+                            </span>
+                            <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center">
+                              <FiHeart className="mr-2 h-4 w-4" />
+                              Ver Detalhes
+                            </span>
                           </Button>
                         </CardContent>
                       </Card>

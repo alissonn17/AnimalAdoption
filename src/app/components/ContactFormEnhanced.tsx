@@ -359,7 +359,7 @@ export default function ContactForm() {
         <Button
           type="submit"
           disabled={!isValid || isSubmitting}
-          className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 ${
+          className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 btn-dog-hover group relative overflow-hidden ${
             !isValid || isSubmitting
               ? "bg-gray-300 text-gray-500 cursor-not-allowed"
               : "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl transform hover:scale-105"
@@ -367,13 +367,19 @@ export default function ContactForm() {
         >
           {isSubmitting ? (
             <>
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+              <span className="loading-dog text-lg mr-2">🐕</span>
               <span>Enviando...</span>
             </>
           ) : (
             <>
-              <FiSend className="h-5 w-5" />
-              <span>Enviar Mensagem</span>
+              <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="dog-emoji text-lg mr-2">📨</span>
+                <span>Enviar Mensagem</span>
+              </span>
+              <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center space-x-2">
+                <FiSend className="h-5 w-5" />
+                <span>Enviar Mensagem</span>
+              </span>
             </>
           )}
         </Button>

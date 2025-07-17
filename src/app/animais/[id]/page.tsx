@@ -60,14 +60,20 @@ export default function AnimalDetailPage() {
           if (error.response?.status === 404) {
             setError("Animal não encontrado. Verifique se o ID está correto.");
           } else if (error.response?.status && error.response.status >= 500) {
-            setError("Servidor temporariamente indisponível. Tente novamente em alguns minutos.");
+            setError(
+              "Servidor temporariamente indisponível. Tente novamente em alguns minutos."
+            );
           } else if (
             error.code === "NETWORK_ERROR" ||
             error.message?.includes("Network Error")
           ) {
-            setError("Problema de conexão. Verifique sua internet e tente novamente.");
+            setError(
+              "Problema de conexão. Verifique sua internet e tente novamente."
+            );
           } else {
-            setError("Erro ao carregar detalhes do animal. Tente novamente mais tarde.");
+            setError(
+              "Erro ao carregar detalhes do animal. Tente novamente mais tarde."
+            );
           }
         }
       } else {
@@ -166,16 +172,17 @@ export default function AnimalDetailPage() {
             <div className="mb-6">
               <Link
                 href="/animais"
-                className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
+                className="inline-flex items-center text-primary hover:text-primary/80 transition-all duration-200 group"
               >
-                <FiArrowLeft className="mr-2 h-4 w-4" />
+                <span className="group-hover:animate-pulse mr-2">🏠</span>
+                <FiArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform duration-200" />
                 Voltar para Animais
               </Link>
             </div>
 
             {/* Success Message */}
             {adoptionSuccess && (
-              <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-md mb-6">
+              <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg mb-6">
                 <h3 className="font-semibold">
                   Solicitação enviada com sucesso!
                 </h3>
@@ -188,7 +195,7 @@ export default function AnimalDetailPage() {
 
             {/* Error Message */}
             {error && (
-              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md mb-6">
+              <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-6">
                 {error}
               </div>
             )}
@@ -196,7 +203,7 @@ export default function AnimalDetailPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Imagem do Animal */}
               <div className="space-y-4">
-                <Card className="overflow-hidden">
+                <Card className="overflow-hidden rounded-xl border-gray-200">
                   <div className="aspect-square relative">
                     {animal.imagemUrl ? (
                       <Image
@@ -214,8 +221,8 @@ export default function AnimalDetailPage() {
                       <span
                         className={`px-3 py-1 rounded-full text-sm font-medium ${
                           animal.status === "disponivel"
-                            ? "bg-green-100 text-green-800"
-                            : "bg-yellow-100 text-yellow-800"
+                            ? "bg-green-50 text-green-700 border border-green-200"
+                            : "bg-yellow-50 text-yellow-700 border border-yellow-200"
                         }`}
                       >
                         {capitalize(animal.status)}
@@ -227,7 +234,7 @@ export default function AnimalDetailPage() {
 
               {/* Informações do Animal */}
               <div className="space-y-6">
-                <Card>
+                <Card className="rounded-xl border-gray-200">
                   <CardHeader>
                     <CardTitle className="text-3xl">{animal.nome}</CardTitle>
                     <CardDescription className="text-lg">
@@ -289,26 +296,34 @@ export default function AnimalDetailPage() {
                     {animal.status === "disponivel" && (
                       <div className="space-y-3">
                         {adoptionSuccess ? (
-                          <Button disabled className="w-full">
-                            <FiHeart className="mr-2 h-5 w-5" />
-                            Solicitação Enviada
+                          <Button disabled className="w-full group relative overflow-hidden">
+                            <span className="flex items-center">
+                              <span className="animate-bounce mr-2 text-lg">🎉</span>
+                              Solicitação Enviada
+                            </span>
                           </Button>
                         ) : (
                           <Button
                             onClick={handleAdopt}
                             disabled={isAdopting}
-                            className="w-full"
+                            className="w-full group relative overflow-hidden hover:bg-primary/90 transition-all duration-200"
                             size="lg"
                           >
                             {isAdopting ? (
                               <div className="flex items-center space-x-2">
-                                <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+                                <span className="animate-dog-walk text-lg">🐕</span>
                                 <span>Solicitando...</span>
                               </div>
                             ) : (
                               <>
-                                <FiHeart className="mr-2 h-5 w-5" />
-                                Quero Adotar {animal.nome}
+                                <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                  <span className="animate-dog-bark text-lg mr-2">🐾</span>
+                                  <span>Quero Adotar {animal.nome}</span>
+                                </span>
+                                <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center">
+                                  <FiHeart className="mr-2 h-5 w-5" />
+                                  Quero Adotar {animal.nome}
+                                </span>
                               </>
                             )}
                           </Button>

@@ -41,7 +41,11 @@ export function Loading({ children, className }: LoadingProps) {
         className
       )}
     >
-      <LoadingSpinner size="lg" />
+      <div className="flex items-center space-x-2">
+        <span className="animate-dog-walk text-3xl">🐕</span>
+        <LoadingSpinner size="lg" />
+        <span className="animate-dog-walk text-3xl">🐱</span>
+      </div>
       {children && <p className="text-muted-foreground">{children}</p>}
     </div>
   );

@@ -11,7 +11,11 @@ export default function ContatoPage() {
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-r from-purple-600 to-blue-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FiHeart className="h-16 w-16 mx-auto mb-6 animate-pulse" />
+          <div className="flex items-center justify-center mb-6">
+            <span className="text-6xl animate-dog-bark mr-4">🐕</span>
+            <FiHeart className="h-16 w-16 animate-pulse" />
+            <span className="text-6xl animate-dog-bark ml-4">🐱</span>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
             Vamos Conversar?
           </h1>

@@ -128,17 +128,24 @@ export default function HomePage(): React.ReactElement {
                     <Link href="/animais">
                       <Button
                         size="lg"
-                        className="w-full sm:w-auto bg-white text-purple-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg shadow-xl"
+                        className="w-full sm:w-auto bg-white text-purple-600 hover:bg-blue-50 hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg shadow-xl btn-dog-hover group relative overflow-hidden"
                       >
-                        <FiHeart className="mr-3 h-6 w-6" />
-                        Ver Animais
+                        <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <span className="dog-emoji text-2xl mr-3">🐕</span>
+                          <span>Ver Animais</span>
+                        </span>
+                        <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center">
+                          <FiHeart className="mr-3 h-6 w-6" />
+                          Ver Animais
+                        </span>
                       </Button>
                     </Link>
                     <Button
                       variant="outline"
                       size="lg"
-                      className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-purple-600 hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg backdrop-blur-sm"
+                      className="w-full sm:w-auto border-2 border-white text-white hover:bg-white hover:text-purple-600 hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 text-lg backdrop-blur-sm btn-dog-wag group"
                     >
+                      <span className="dog-emoji text-lg mr-3 group-hover:animate-tail-wag">🏠</span>
                       <FiMapPin className="mr-3 h-6 w-6" />
                       Encontrar Abrigos
                     </Button>
@@ -258,10 +265,16 @@ export default function HomePage(): React.ReactElement {
                           <Link href={`/animais/${animal.id}`}>
                             <Button
                               size="sm"
-                              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105"
+                              className="bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 btn-dog-hover group relative overflow-hidden"
                             >
-                              Ver Mais
-                              <FiArrowRight className="ml-2 h-4 w-4" />
+                              <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                <span className="dog-emoji text-lg mr-2">🐾</span>
+                                <span>Ver Mais</span>
+                              </span>
+                              <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center">
+                                Ver Mais
+                                <FiArrowRight className="ml-2 h-4 w-4" />
+                              </span>
                             </Button>
                           </Link>
                         </div>
@@ -276,10 +289,16 @@ export default function HomePage(): React.ReactElement {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white hover:scale-105 transition-all duration-300 font-semibold px-8 py-4"
+                    className="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white hover:scale-105 transition-all duration-300 font-semibold px-8 py-4 btn-dog-walking group relative overflow-hidden"
                   >
-                    Ver Todos os Animais
-                    <FiArrowRight className="ml-3 h-5 w-5" />
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="dog-emoji text-lg mr-3">🐕‍🦺</span>
+                      <span>Ver Todos os Animais</span>
+                    </span>
+                    <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center">
+                      Ver Todos os Animais
+                      <FiArrowRight className="ml-3 h-5 w-5" />
+                    </span>
                   </Button>
                 </Link>
               </div>
@@ -550,10 +569,16 @@ export default function HomePage(): React.ReactElement {
                     />
                     <Button
                       type="submit"
-                      className="bg-white text-purple-600 hover:bg-blue-50 font-semibold px-8 py-3 shadow-xl hover:scale-105 transition-all duration-300"
+                      className="bg-white text-purple-600 hover:bg-blue-50 font-semibold px-8 py-3 shadow-xl hover:scale-105 transition-all duration-300 btn-dog-wag group relative overflow-hidden"
                     >
-                      <FiMail className="mr-2 h-5 w-5" />
-                      Inscrever
+                      <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <span className="dog-emoji text-lg mr-2">📧</span>
+                        <span>Inscrever</span>
+                      </span>
+                      <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center">
+                        <FiMail className="mr-2 h-5 w-5" />
+                        Inscrever
+                      </span>
                     </Button>
                   </div>
                 </form>

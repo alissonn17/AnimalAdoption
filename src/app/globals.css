@@ -230,3 +230,123 @@ a:focus-visible {
 #animTitle{
   font-size: 40px;
 }
+
+/* === 🐕 ANIMAÇÕES DE CACHORRO === */
+
+/* Respeitar preferências de acessibilidade - desabilitar animações se o usuário preferir */
+@media (prefers-reduced-motion: reduce) {
+  .animate-dog-walk,
+  .animate-tail-wag,
+  .animate-dog-bark,
+  .animate-dog-run,
+  .btn-dog-hover .dog-emoji,
+  .btn-dog-walking .dog-emoji {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Animação de caminhada do cachorro */
+@keyframes dogWalk {
+  0%, 100% { 
+    transform: translateX(0) scale(1);
+  }
+  25% { 
+    transform: translateX(2px) scale(0.95);
+  }
+  50% { 
+    transform: translateX(0) scale(1.05);
+  }
+  75% { 
+    transform: translateX(-2px) scale(0.95);
+  }
+}
+
+/* Animação de balanço da cauda */
+@keyframes tailWag {
+  0%, 100% { 
+    transform: rotate(0deg);
+  }
+  25% { 
+    transform: rotate(10deg);
+  }
+  75% { 
+    transform: rotate(-10deg);
+  }
+}
+
+/* Animação de latido/pulo */
+@keyframes dogBark {
+  0%, 100% { 
+    transform: translateY(0) scale(1);
+  }
+  50% { 
+    transform: translateY(-3px) scale(1.1);
+  }
+}
+
+/* Animação de correr */
+@keyframes dogRun {
+  0% { 
+    transform: translateX(-5px) scale(0.9);
+  }
+  50% { 
+    transform: translateX(5px) scale(1.1);
+  }
+  100% { 
+    transform: translateX(-5px) scale(0.9);
+  }
+}
+
+/* Animação suave de entrada */
+@keyframes dogEnter {
+  0% { 
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Classes utilitárias para animações de cachorro */
+.animate-dog-walk {
+  animation: dogWalk 2s ease-in-out infinite;
+}
+
+.animate-tail-wag {
+  animation: tailWag 0.8s ease-in-out infinite;
+}
+
+.animate-dog-bark {
+  animation: dogBark 1s ease-in-out infinite;
+}
+
+.animate-dog-run {
+  animation: dogRun 1.5s ease-in-out infinite;
+}
+
+.animate-dog-enter {
+  animation: dogEnter 0.3s ease-out;
+}
+
+/* Hover effects especiais para botões com cachorro */
+.btn-dog-hover:hover .dog-emoji {
+  animation: dogBark 0.6s ease-in-out;
+}
+
+.btn-dog-walking:hover .dog-emoji {
+  animation: dogWalk 1s ease-in-out infinite;
+}
+
+.btn-dog-wag:hover .dog-emoji {
+  animation: tailWag 0.8s ease-in-out infinite;
+}
+
+/* Animações para estados de loading */
+.loading-dog {
+  animation: dogRun 1.2s ease-in-out infinite;
+}
+
+/* === FIM DAS ANIMAÇÕES DE CACHORRO === */

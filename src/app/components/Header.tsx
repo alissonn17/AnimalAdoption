@@ -76,7 +76,8 @@ export default function Header(): JSX.Element {
               <FiHome className="h-4 w-4 group-hover:scale-110 transition-transform" />
               <span>Início</span>
             </Link>
-            <Link href="/animais" className={getLinkClassName("/animais")}>
+            <Link href="/animais" className={getLinkClassName("/animais") + " btn-dog-wag"}>
+              <span className="dog-emoji text-lg mr-1">🐕</span>
               <FiHeart className="h-4 w-4 group-hover:scale-110 transition-transform" />
               <span>Animais</span>
             </Link>
@@ -101,9 +102,15 @@ export default function Header(): JSX.Element {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/animais">
-              <Button className="cta-button px-8 py-3 rounded-full transition-all duration-300 hover:scale-105">
-                <FiHeart className="mr-2 h-5 w-5" />
-                Adotar Agora
+              <Button className="cta-button px-8 py-3 rounded-full transition-all duration-300 hover:scale-105 btn-dog-hover group relative overflow-hidden">
+                <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <span className="dog-emoji text-lg mr-2">🐾</span>
+                  <span>Adotar Agora</span>
+                </span>
+                <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center">
+                  <FiHeart className="mr-2 h-5 w-5" />
+                  Adotar Agora
+                </span>
               </Button>
             </Link>
           </div>
@@ -142,13 +149,14 @@ export default function Header(): JSX.Element {
               </Link>
               <Link
                 href="/animais"
-                className={`flex items-center space-x-4 px-6 py-4 rounded-xl mx-2 font-semibold transition-all duration-300 ${
+                className={`flex items-center space-x-4 px-6 py-4 rounded-xl mx-2 font-semibold transition-all duration-300 btn-dog-wag group ${
                   isActivePage("/animais")
                     ? "nav-link-active text-white shadow-lg"
                     : "nav-link-default hover:nav-link-active hover:shadow-md"
                 }`}
                 onClick={closeMobileMenu}
               >
+                <span className="dog-emoji text-lg">🐕</span>
                 <FiHeart className="h-6 w-6 group-hover:scale-110 transition-transform" />
                 <span>Animais</span>
               </Link>
@@ -202,9 +210,15 @@ export default function Header(): JSX.Element {
               </Link>
               <div className="pt-6 px-4">
                 <Link href="/animais" onClick={closeMobileMenu}>
-                  <Button className="w-full cta-button py-4 rounded-full transition-all duration-300 hover:scale-105">
-                    <FiHeart className="mr-3 h-5 w-5" />
-                    Adotar Agora
+                  <Button className="w-full cta-button py-4 rounded-full transition-all duration-300 hover:scale-105 btn-dog-hover group relative overflow-hidden">
+                    <span className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="dog-emoji text-lg mr-3">🐾</span>
+                      <span>Adotar Agora</span>
+                    </span>
+                    <span className="group-hover:opacity-0 transition-opacity duration-300 flex items-center">
+                      <FiHeart className="mr-3 h-5 w-5" />
+                      Adotar Agora
+                    </span>
                   </Button>
                 </Link>
               </div>
