@@ -40,7 +40,7 @@ export default function Putabrigo(): JSX.Element{
         }
 
         fetchabrigo();
-    },[data]);
+    },[data, id]);
 
     function onSubmit(data: schemaAbrigo){
         setdata({
