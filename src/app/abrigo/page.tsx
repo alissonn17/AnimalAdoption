@@ -9,6 +9,8 @@ import Postabrigo from "../components/postAbrigo";
 import Putabrigo from "../components/putAbrigoID";
 import Deleteabrigo from "../components/deleteAbrigo";
 
+import { resgetprop } from "../types/abrigo-types";
+
 export default function Abrigo(): JSX.Element{
     const [res, setRes] = useState<resgetprop[]>([]);
 

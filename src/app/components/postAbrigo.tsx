@@ -5,14 +5,10 @@ import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-const schema = z.object({
-    nome: z.string()
-    .min(1,"Digite o nome do abrigo!"),
-    endereco: z.string()
-    .min(1,"Digite o endereço completo!"),
-    capacidade: z.string()
-    .min(1,"Digite a capacidade!")
-})
+import { resgetprop } from "../types/abrigo-types";
+import { schemapost } from "../types/abrigo-types";
+
+const schema = schemapost;
 
 type schemaAbrigo = z.infer<typeof schema>
 
