@@ -1,9 +1,5 @@
 import z from "zod";
 
-export interface mainprops{
-  children: React.ReactNode;
-}
-
 export interface resgetprop{
   id: number;
   nome: string;
