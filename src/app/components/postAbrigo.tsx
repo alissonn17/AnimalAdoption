@@ -30,10 +30,10 @@ export default function Postabrigo(): JSX.Element {
       if (!data || data === null) return;
 
       try {
-        await api.post('/Abrigos', data);
-        const response = await api.get('/Abrigos');
+        await api.post("/Abrigos", data);
+        const response = await api.get("/Abrigos");
         setRes(response.data);
-        console.log('Abrigo created successfully');
+        console.log("Abrigo created successfully");
       } catch (error) {
         console.log("Erro durante a requisição!", error);
       }

@@ -70,7 +70,7 @@ export default function Putabrigo(): JSX.Element {
               type="text"
               {...register("id")}
               id="inputid"
-              placeholder="Digite o ID."
+              placeholder="Digite o ID para editar"
             />
           </div>
           {errors.id && (

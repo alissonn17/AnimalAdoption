@@ -62,7 +62,7 @@ export default function Deleteabrigo(): JSX.Element {
               type="text"
               {...register("id")}
               id="inputid"
-              placeholder="Digite o ID."
+              placeholder="Digite o ID para deletar"
             />
           </div>
           {errors.id && (

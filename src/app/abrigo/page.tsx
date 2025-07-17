@@ -33,7 +33,7 @@ export default function Abrigo(): JSX.Element {
     async function fetchabrigo() {
       try {
         setLoading(true);
-        const response = await api.get('/Abrigos');
+        const response = await api.get("/Abrigos");
         setRes(response.data);
         setError(null);
       } catch (error) {
@@ -124,6 +124,38 @@ export default function Abrigo(): JSX.Element {
         {showActions && (
           <section className="py-8 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              {/* Lista de Referência dos IDs */}
+              {!loading && !error && filteredAbrigos.length > 0 && (
+                <div className="bg-white rounded-xl p-6 shadow-md mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                    <FiSearch className="h-5 w-5 mr-2 text-purple-600" />
+                    Lista de Referência - IDs dos Abrigos
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {filteredAbrigos.map((abrigo) => (
+                      <div
+                        key={abrigo.id}
+                        className="flex items-center justify-between bg-gray-50 p-3 rounded-lg border"
+                      >
+                        <div>
+                          <p className="font-semibold text-gray-900 text-sm truncate">
+                            {abrigo.nome}
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {abrigo.endereco.length > 30
+                              ? `${abrigo.endereco.substring(0, 30)}...`
+                              : abrigo.endereco}
+                          </p>
+                        </div>
+                        <span className="bg-purple-100 text-purple-800 text-sm font-bold py-1 px-3 rounded-full">
+                          ID: {abrigo.id}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow">
                   <FiSearch className="h-8 w-8 text-blue-600 mb-4" />
@@ -206,13 +238,20 @@ export default function Abrigo(): JSX.Element {
                     key={abrigo.id}
                     className="bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                   >
-                    <div className="flex items-center mb-4">
-                      <div className="bg-purple-100 p-3 rounded-full mr-4">
-                        <FiHome className="h-6 w-6 text-purple-600" />
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center">
+                        <div className="bg-purple-100 p-3 rounded-full mr-4">
+                          <FiHome className="h-6 w-6 text-purple-600" />
+                        </div>
+                        <div>
+                          <h3 className="text-xl font-bold text-gray-900 line-clamp-1">
+                            {abrigo.nome}
+                          </h3>
+                          <p className="text-sm text-purple-600 font-semibold">
+                            ID: {abrigo.id}
+                          </p>
+                        </div>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 line-clamp-1">
-                        {abrigo.nome}
-                      </h3>
                     </div>
 
                     <div className="space-y-3">
@@ -254,10 +293,46 @@ export default function Abrigo(): JSX.Element {
                       </div>
                     </div>
 
-                    <div className="mt-6">
+                    <div className="mt-6 space-y-3">
                       <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold py-3 px-4 rounded-xl hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105">
                         Ver Animais do Abrigo
                       </button>
+
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          onClick={() => {
+                            const input = document.querySelector(
+                              'input[placeholder*="ID para editar"]'
+                            ) as HTMLInputElement;
+                            if (input) {
+                              input.value = abrigo.id.toString();
+                              input.focus();
+                            }
+                            setShowActions(true);
+                          }}
+                          className="flex items-center justify-center space-x-2 bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200"
+                        >
+                          <FiEdit3 className="h-4 w-4" />
+                          <span>Editar</span>
+                        </button>
+
+                        <button
+                          onClick={() => {
+                            const input = document.querySelector(
+                              'input[placeholder*="ID para deletar"]'
+                            ) as HTMLInputElement;
+                            if (input) {
+                              input.value = abrigo.id.toString();
+                              input.focus();
+                            }
+                            setShowActions(true);
+                          }}
+                          className="flex items-center justify-center space-x-2 bg-red-500 hover:bg-red-600 text-white font-medium py-2 px-3 rounded-lg transition-colors duration-200"
+                        >
+                          <FiTrash2 className="h-4 w-4" />
+                          <span>Deletar</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 ))}
