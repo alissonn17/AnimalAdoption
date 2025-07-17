@@ -65,11 +65,11 @@ export default function Deleteabrigo(): JSX.Element{
                         {errors.id.message} 
                     </span>
                 )}<br />
-            <button className="bg-blue-200 border-1 border-black rounded-2xl p-1" type="submit">Enviar</button><br/>
+            <button className="bg-blue-200 border-1 border-black rounded-2xl p-1" type="submit">Enviar</button>
             {load &&
                 <h1 className="font-bold">{res}</h1>
             }
-            </div><br />
+            </div>
 
         </form>
     </>
