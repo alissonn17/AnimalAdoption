@@ -1,7 +1,31 @@
 {
-  "name": "projetofinal",
-  "version": "0.1.0",
+  "name": "animal-adoption-platform",
+  "version": "1.0.0",
+  "description": "Modern platform for animal adoption connecting pets with loving families",
   "private": true,
+  "keywords": [
+    "adoption",
+    "animals",
+    "pets",
+    "rescue",
+    "nextjs",
+    "typescript",
+    "tailwindcss"
+  ],
+  "author": {
+    "name": "Deivid Leal",
+    "email": "deividleal@email.com",
+    "url": "https://github.com/DeividLeal"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alissonn17/AnimalAdoption.git"
+  },
+  "homepage": "https://animal-adoption-platform.vercel.app",
+  "bugs": {
+    "url": "https://github.com/alissonn17/AnimalAdoption/issues"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
