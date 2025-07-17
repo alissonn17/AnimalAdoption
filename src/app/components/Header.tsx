@@ -66,7 +66,7 @@ export default function Header(): JSX.Element {
             <div className="bg-gradient-to-br from-purple-600 to-blue-700 rounded-full p-2 group-hover:scale-110 transition-transform duration-300 shadow-lg">
               <FiHeart className="text-xl text-white" />
             </div>
-            <span className="logo-text text-2xl">AdotePet</span>
+            <span className="logo-text text-2xl">Animal Adoption</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -314,7 +314,7 @@ export default function HomePage(): React.ReactElement {
                   <CardContent>
                     <p className="text-gray-700 italic leading-relaxed">
                       &ldquo;O Bobby trouxe alegria e amor para nossa família. O
-                      processo foi simples e o suporte da AdotePet foi
+                      processo foi simples e o suporte da Animal Adoption foi
                       excepcional. Recomendo para todos!&rdquo;
                     </p>
                     <div className="flex justify-center mt-4">
@@ -394,7 +394,7 @@ export default function HomePage(): React.ReactElement {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center mb-16">
                 <h2 className="text-4xl font-bold text-gray-900 mb-6">
-                  Por Que Escolher a AdotePet?
+                  Por Que Escolher a Animal Adoption?
                 </h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto">
                   Oferecemos a melhor experiência em adoção de animais
@@ -613,10 +613,10 @@ export default function HomePage(): React.ReactElement {
                   <CardContent>
                     <p className="text-gray-600 mb-4">Envie sua mensagem</p>
                     <a
-                      href="mailto:contato@adotepet.com"
+                      href="mailto:contato@animaladoption.com"
                       className="text-blue-600 font-semibold text-lg hover:underline"
                     >
-                      contato@adotepet.com
+                      contato@animaladoption.com
                     </a>
                   </CardContent>
                 </Card>

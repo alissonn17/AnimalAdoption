@@ -24,7 +24,7 @@ export default function SobrePage() {
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center">
                 <h1 className="text-5xl md:text-6xl font-extrabold mb-8 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-                  Sobre a AdotePet
+                  Sobre a Animal Adoption
                 </h1>
                 <p className="text-xl md:text-2xl opacity-95 max-w-4xl mx-auto leading-relaxed">
                   Somos uma plataforma dedicada a conectar animais abandonados
@@ -115,7 +115,7 @@ export default function SobrePage() {
                   <div className="space-y-6">
                     <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg shadow-sm">
                       <p className="text-gray-700 text-lg leading-relaxed">
-                        A AdotePet nasceu em 2024 do sonho de um grupo de
+                        A Animal Adoption nasceu em 2024 do sonho de um grupo de
                         desenvolvedores e ativistas da causa animal que
                         perceberam a necessidade de uma plataforma digital
                         moderna e eficiente para facilitar o processo de adoção.

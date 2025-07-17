@@ -115,7 +115,7 @@ export default function ContatoPage() {
                     💬 WhatsApp
                   </a>
                   <a
-                    href="mailto:contato@adotepet.com"
+                    href="mailto:contato@animaladoption.com"
                     className="block w-full bg-white/20 hover:bg-white/30 transition-colors duration-300 rounded-xl p-3 text-center"
                   >
                     ✉️ Email Direto

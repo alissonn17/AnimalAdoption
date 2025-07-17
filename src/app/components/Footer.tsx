@@ -29,7 +29,7 @@ export default function Footer(): JSX.Element {
                 <FiHeart className="text-2xl text-white animate-pulse" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-purple-300 to-blue-300 bg-clip-text text-transparent">
-                AdotePet
+                Animal Adoption
               </span>
             </div>
             <p className="text-gray-300 leading-relaxed">
@@ -118,10 +118,10 @@ export default function Footer(): JSX.Element {
               <div className="flex items-center space-x-3 text-gray-300">
                 <FiMail className="h-5 w-5 text-purple-400" />
                 <a
-                  href="mailto:contato@adotepet.com"
+                  href="mailto:contato@animaladoption.com"
                   className="hover:text-purple-300 transition-colors duration-300"
                 >
-                  contato@adotepet.com
+                  contato@animaladoption.com
                 </a>
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
@@ -178,7 +178,7 @@ export default function Footer(): JSX.Element {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-center md:text-left">
               <p className="text-gray-300 text-sm">
-                © {currentYear} AdotePet. Feito com{" "}
+                © {currentYear} Animal Adoption. Feito com{" "}
                 <FiHeart className="inline h-4 w-4 text-red-400 animate-pulse" />{" "}
                 para os animais.
               </p>
