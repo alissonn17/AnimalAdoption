@@ -5,10 +5,9 @@ import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-const schema = z.object({
-    id: z.string()
-    .min(1,"Digite o número do ID todo!")
-})
+import { schemadel } from "../types/abrigo-types";
+
+const schema = schemadel;
 
 type schemaId = z.infer<typeof schema>
 
@@ -31,7 +30,7 @@ export default function Deleteabrigo(): JSX.Element{
             if (!id || id.trim().length === 0) return;
 
             try{
-                const response = await axios.delete(`${process.env.NEXT_PUBLIC_URL}/Abrigos/${id}`);
+                await axios.delete(`${process.env.NEXT_PUBLIC_URL}/Abrigos/${id}`);
                 setRes("Abrigo deletado com sucesso!");
                 console.log(`${process.env.NEXT_PUBLIC_URL}/Abrigos/${id}`)
             } catch (error) {
@@ -66,11 +65,13 @@ export default function Deleteabrigo(): JSX.Element{
                         {errors.id.message} 
                     </span>
                 )}<br />
+
             <button className="bg-blue-200 border-1 border-black rounded-2xl p-1 hover:bg-blue-400" type="submit">Enviar</button><br/>
+
             {load &&
                 <h1 className="font-bold">{res}</h1>
             }
-            </div><br />
+            </div>
 
         </form>
     </>

@@ -5,16 +5,9 @@ import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-const schema = z.object({
-    id: z.string()
-    .min(1,"Digite o número do ID todo!"),
-    nome: z.string()
-    .min(1,"Digite o nome do abrigo!"),
-    endereco: z.string()
-    .min(1,"Digite o endereço completo!"),
-    capacidade: z.string()
-    .min(1,"Digite a capacidade!")
-})
+import { schemaput } from "../types/abrigo-types";
+
+const schema = schemaput;
 
 type schemaAbrigo = z.infer<typeof schema>
 
@@ -47,7 +40,7 @@ export default function Putabrigo(): JSX.Element{
         }
 
         fetchabrigo();
-    },[data]);
+    },[data, id]);
 
     function onSubmit(data: schemaAbrigo){
         setdata({

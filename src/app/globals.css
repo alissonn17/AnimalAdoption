@@ -38,6 +38,25 @@ main{
   padding-top: 25px;
 }
 
+
 h1{
   font-size: 25px;
+
+#gets{
+  max-width: 400px;
+  min-width: 200px;
+}
+
+#abrigoIntro{
+  background-color: #c4d9f5;
+  max-width: 800px;
+  min-width: 200px;
+  border-radius: 30px  50px;
+  padding: 10px;
+  padding-left: 40px;
+}
+
+#animTitle{
+  font-size: 40px;
+
 }
