@@ -212,3 +212,21 @@ a:focus-visible {
     0 2px 4px -1px rgba(0, 0, 0, 0.06),
     0 0 0 1px rgba(124, 58, 237, 0.15);
 }
+
+#gets{
+  max-width: 400px;
+  min-width: 200px;
+}
+
+#abrigoIntro{
+  background-color: #c4d9f5;
+  max-width: 800px;
+  min-width: 200px;
+  border-radius: 30px  50px;
+  padding: 10px;
+  padding-left: 40px;
+}
+
+#animTitle{
+  font-size: 40px;
+}

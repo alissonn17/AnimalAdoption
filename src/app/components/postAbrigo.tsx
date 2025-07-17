@@ -59,7 +59,7 @@ export default function Postabrigo(): JSX.Element{
                 <h1 className="font-bold">Adicionar abrigo.</h1><br />
                 <div>
                     <label className="font-bold" htmlFor="nome">Nome: </label>
-                    <input className="bg-blue-300 rounded-2xl border-1 border-black p-1" 
+                    <input className="bg-blue-300 rounded-2xl border-1 border-black p-1 hover:bg-blue-100"
                     type="text" 
                     {...register("nome")}
                     id="inputnome" 
@@ -73,7 +73,7 @@ export default function Postabrigo(): JSX.Element{
 
                 <div>
                     <label className="font-bold" htmlFor="endereco">Endereco: </label>
-                    <input className="bg-blue-300 rounded-2xl border-1 border-black p-1" 
+                    <input className="bg-blue-300 rounded-2xl border-1 border-black p-1 hover:bg-blue-100"
                     type="text" 
                     {...register("endereco")}
                     id="inputendereco" 
@@ -87,7 +87,7 @@ export default function Postabrigo(): JSX.Element{
 
                 <div>
                     <label className="font-bold" htmlFor="capacidade">Capacidade: </label>
-                    <input className="bg-blue-300 rounded-2xl border-1 border-black p-1" 
+                    <input className="bg-blue-300 rounded-2xl border-1 border-black p-1 hover:bg-blue-100"
                     type="text" 
                     {...register("capacidade")}
                     id="inputcapacidade" 
@@ -99,7 +99,7 @@ export default function Postabrigo(): JSX.Element{
                     </span>
                 )}<br />
 
-            <button className="bg-blue-200 border-1 border-black rounded-2xl p-1" type="submit">Enviar</button>
+            <button className="bg-blue-200 border-1 border-black rounded-2xl p-1 hover:bg-blue-400" type="submit">Enviar</button>
             </div><br />
         </form>
 
