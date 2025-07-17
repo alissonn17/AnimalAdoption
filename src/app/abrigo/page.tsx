@@ -29,15 +29,15 @@ export default function Abrigo(): JSX.Element{
     <Header />
     <Main>
         <section className="flex flex-col items-center p-7">
-        {res.map((abrigo) => (
-            <div key={abrigo.id}>
+        {res.map((abrigo) => (<>
+            <div key={abrigo.id} className="bg-blue-100 border-2 rounded-3xl border-black p-2">
                 <h1 className="font-bold">{abrigo.nome}</h1>
                 <p>Endereço: {abrigo.endereco}</p>
                 <p>Capacidade: {abrigo.capacidade}</p>
                 <p>Criado em: {new Date(abrigo.createdAt).toLocaleString()}</p>
                 <p>Atualizado em: {new Date(abrigo.updatedAt).toLocaleString()}</p><br/>
-            </div>
-        ))}<br />
+            </div><br/></>
+        ))}
 
         <Getabrigoid/><br/>
 

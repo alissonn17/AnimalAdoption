@@ -51,11 +51,11 @@ export default function Deleteabrigo(): JSX.Element{
     return <>
         <form onSubmit={handleSubmit(onSubmit)}>
             
-            <div className="flex flex-col items-center justify-center">
+            <div className="flex flex-col items-center justify-center border-2 rounded-3xl border-black p-2">
                 <h1 className="font-bold">Deletar abrigo.</h1><br />
                 <div>
                     <label className="font-bold" htmlFor="id">Abrigo(ID): </label>
-                    <input className="bg-blue-300 rounded-2xl border-1 border-black p-1" 
+                    <input className="bg-blue-300 rounded-2xl border-1 border-black p-1 hover:bg-blue-100" 
                     type="text" 
                     {...register("id")}
                     id="inputid" 
@@ -66,7 +66,7 @@ export default function Deleteabrigo(): JSX.Element{
                         {errors.id.message} 
                     </span>
                 )}<br />
-            <button className="bg-blue-200 border-1 border-black rounded-2xl p-1" type="submit">Enviar</button><br/>
+            <button className="bg-blue-200 border-1 border-black rounded-2xl p-1 hover:bg-blue-400" type="submit">Enviar</button><br/>
             {load &&
                 <h1 className="font-bold">{res}</h1>
             }
