@@ -3,7 +3,7 @@ import { JSX, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Main from "../components/Main";
-import axios from "axios";
+import api from "../services/api";
 import Getabrigoid from "../components/getAbrigoID";
 import Postabrigo from "../components/postAbrigo";
 import Putabrigo from "../components/putAbrigoID";
@@ -33,9 +33,7 @@ export default function Abrigo(): JSX.Element {
     async function fetchabrigo() {
       try {
         setLoading(true);
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_URL}/Abrigos`
-        );
+        const response = await api.get('/Abrigos');
         setRes(response.data);
         setError(null);
       } catch (error) {
