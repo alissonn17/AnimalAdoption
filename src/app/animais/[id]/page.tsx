@@ -38,37 +38,41 @@ export default function AnimalDetailPage() {
       setError(""); // Clear previous errors
       const data = await animaisService.getById(Number(animalId));
       setAnimal(data);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Error loading animal:", err);
 
-      // Try to find in mock data first
-      const mockAnimal = mockAnimals.find(
-        (animal) => animal.id === Number(animalId)
-      );
+      // Check if err is an object with expected props
+      if (typeof err === "object" && err !== null) {
+        const error = err as {
+          response?: { status?: number };
+          code?: string;
+          message?: string;
+        };
 
-      if (mockAnimal) {
-        setAnimal(mockAnimal);
-        console.log("Using mock data for animal:", animalId);
-      } else {
-        // Set specific error messages based on error type
-        if (err?.response?.status === 404) {
-          setError("Animal não encontrado. Verifique se o ID está correto.");
-        } else if (err?.response?.status >= 500) {
-          setError(
-            "Servidor temporariamente indisponível. Tente novamente em alguns minutos."
-          );
-        } else if (
-          err?.code === "NETWORK_ERROR" ||
-          err?.message?.includes("Network Error")
-        ) {
-          setError(
-            "Problema de conexão. Verifique sua internet e tente novamente."
-          );
+        const mockAnimal = mockAnimals.find(
+          (animal) => animal.id === Number(animalId)
+        );
+
+        if (mockAnimal) {
+          setAnimal(mockAnimal);
+          console.log("Using mock data for animal:", animalId);
         } else {
-          setError(
-            "Erro ao carregar detalhes do animal. Tente novamente mais tarde."
-          );
+          if (error.response?.status === 404) {
+            setError("Animal não encontrado. Verifique se o ID está correto.");
+          } else if (error.response?.status && error.response.status >= 500) {
+            setError("Servidor temporariamente indisponível. Tente novamente em alguns minutos.");
+          } else if (
+            error.code === "NETWORK_ERROR" ||
+            error.message?.includes("Network Error")
+          ) {
+            setError("Problema de conexão. Verifique sua internet e tente novamente.");
+          } else {
+            setError("Erro ao carregar detalhes do animal. Tente novamente mais tarde.");
+          }
         }
+      } else {
+        // fallback genérico se err não tem forma conhecida
+        setError("Erro inesperado ao carregar o animal.");
       }
     } finally {
       setIsLoading(false);
