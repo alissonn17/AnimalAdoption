@@ -240,9 +240,8 @@ refactor: ♻️ optimize API service architecture
 
 ### Social Media & Presentation
 
-- **📺 LinkedIn Presentation:** [Project Showcase](https://www.linkedin.com/posts/alissonsamueldevsa_animal-adoption-activity-7351708197658726400-P4oN?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0N_UAB4tVIyH2Pz6rsCqJXrlJcK8PBsF4)
+- **📺 LinkedIn Presentation:** [Project Showcase](https://linkedin.com/posts/your-presentation)
 - **📋 Project Documentation:** [GitHub Wiki](https://github.com/alissonn17/AnimalAdoption/wiki)
-- **📜 API Repository:** [GitHub Repository](https://github.com/alissonn17/AnimalAdoption-Api)
 
 ---
 

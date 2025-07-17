@@ -184,78 +184,79 @@ export default function AnimaisPage() {
               ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {filteredAnimais.map((animal) => (
-                    <Card
+                    <Link
                       key={animal.id}
-                      className="overflow-hidden hover:shadow-lg transition-shadow"
+                      href={`/animais/${animal.id}`}
+                      className="group block"
                     >
-                      <div className="aspect-square bg-gray-100 relative">
-                        {animal.imagemUrl ? (
-                          <Image
-                            src={animal.imagemUrl}
-                            alt={animal.nome}
-                            fill
-                            className="object-cover"
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center">
-                            <FiHeart className="text-4xl text-gray-400" />
-                          </div>
-                        )}
-                        <div className="absolute top-2 right-2">
-                          <span
-                            className={`px-2 py-1 rounded-full text-xs font-medium ${
-                              animal.status === "disponivel"
-                                ? "bg-green-100 text-green-800"
-                                : "bg-yellow-100 text-yellow-800"
-                            }`}
-                          >
-                            {capitalize(animal.status)}
-                          </span>
-                        </div>
-                      </div>
-
-                      <CardHeader>
-                        <CardTitle className="text-lg">{animal.nome}</CardTitle>
-                        <CardDescription>
-                          {capitalize(animal.especie)} •{" "}
-                          {capitalize(animal.raca)}
-                        </CardDescription>
-                      </CardHeader>
-
-                      <CardContent>
-                        <div className="space-y-2 text-sm text-gray-600">
-                          <div className="flex items-center space-x-2">
-                            <FiCalendar className="w-4 h-4" />
-                            <span>{animal.idade} anos</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <span className="w-4 h-4 flex items-center justify-center">
-                              📏
+                      <Card className="overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer group-hover:border-primary/50">
+                        <div className="aspect-square bg-gray-100 relative">
+                          {animal.imagemUrl ? (
+                            <Image
+                              src={animal.imagemUrl}
+                              alt={animal.nome}
+                              fill
+                              className="object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-100 to-blue-100">
+                              <FiHeart className="text-4xl text-primary/60 group-hover:text-primary transition-colors" />
+                            </div>
+                          )}
+                          <div className="absolute top-2 right-2">
+                            <span
+                              className={`px-3 py-1 rounded-full text-xs font-semibold shadow-sm ${
+                                animal.status === "disponivel"
+                                  ? "bg-green-100 text-green-800 border border-green-200"
+                                  : "bg-yellow-100 text-yellow-800 border border-yellow-200"
+                              }`}
+                            >
+                              {capitalize(animal.status)}
                             </span>
-                            <span>Porte {animal.porte}</span>
-                          </div>
-                          <div className="flex items-center space-x-2">
-                            <span className="w-4 h-4 flex items-center justify-center">
-                              {animal.sexo === "macho" ? "♂️" : "♀️"}
-                            </span>
-                            <span>{capitalize(animal.sexo)}</span>
                           </div>
                         </div>
 
-                        <p className="text-sm text-gray-700 mt-3 line-clamp-2">
-                          {animal.descricao}
-                        </p>
+                        <CardHeader className="pb-3">
+                          <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                            {animal.nome}
+                          </CardTitle>
+                          <CardDescription className="text-gray-600">
+                            {capitalize(animal.especie)} •{" "}
+                            {capitalize(animal.raca)}
+                          </CardDescription>
+                        </CardHeader>
 
-                        <div className="mt-4">
-                          <Link href={`/animais/${animal.id}`}>
-                            <Button className="w-full">
-                              <FiHeart className="mr-2 h-4 w-4" />
-                              Ver Detalhes
-                            </Button>
-                          </Link>
-                        </div>
-                      </CardContent>
-                    </Card>
+                        <CardContent>
+                          <div className="space-y-2 text-sm text-gray-600 mb-3">
+                            <div className="flex items-center space-x-2">
+                              <FiCalendar className="w-4 h-4 text-primary/70" />
+                              <span>{animal.idade} anos</span>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <span className="w-4 h-4 flex items-center justify-center text-primary/70">
+                                📏
+                              </span>
+                              <span>Porte {animal.porte}</span>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <span className="w-4 h-4 flex items-center justify-center">
+                                {animal.sexo === "macho" ? "♂️" : "♀️"}
+                              </span>
+                              <span>{capitalize(animal.sexo)}</span>
+                            </div>
+                          </div>
+
+                          <p className="text-sm text-gray-700 mb-4 line-clamp-2">
+                            {animal.descricao}
+                          </p>
+
+                          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold py-2.5 shadow-md hover:shadow-lg transition-all duration-200">
+                            <FiHeart className="mr-2 h-4 w-4" />
+                            Ver Detalhes
+                          </Button>
+                        </CardContent>
+                      </Card>
+                    </Link>
                   ))}
                 </div>
               )}

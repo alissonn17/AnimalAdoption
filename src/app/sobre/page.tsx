@@ -123,9 +123,9 @@ export default function SobrePage() {
                     </div>
                     <div className="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-lg shadow-sm">
                       <p className="text-gray-700 text-lg leading-relaxed">
-                        Começamos como um projeto acadêmico no Programadores do Amanhã, mas rapidamente
-                        percebemos o impacto positivo que poderíamos ter na vida
-                        dos animais e das famílias.
+                        Começamos como um projeto acadêmico no Programadores do
+                        Amanhã, mas rapidamente percebemos o impacto positivo
+                        que poderíamos ter na vida dos animais e das famílias.
                       </p>
                     </div>
                     <div className="bg-purple-50 border-l-4 border-purple-500 p-6 rounded-r-lg shadow-sm">

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { JSX, useEffect, useState } from "react";
 import api from "../services/api";
 import z from "zod";
@@ -63,7 +63,7 @@ export default function Getabrigoid(): JSX.Element {
               type="text"
               {...register("id")}
               id="inputid"
-              placeholder="Digite o ID."
+              placeholder="Digite o ID para buscar"
             />
           </div>
           {errors.id && (
